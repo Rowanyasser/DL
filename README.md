@@ -20,7 +20,6 @@ This project focuses on preprocessing Arabic song lyrics by Elissa, applying tex
 ## File Structure
 - `preprocessElissa.ipynb`: Jupyter Notebook containing the full preprocessing pipeline.
 - `elissa_lyrics_preprocessed.csv`: CSV file with processed lyrics data.
-- `requirements.txt`: List of dependencies for running the project.
 
 ## Installation
 1. Clone the repository:
@@ -28,10 +27,7 @@ This project focuses on preprocessing Arabic song lyrics by Elissa, applying tex
    git clone <repository_url>
    cd <repository_folder>
    ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+2. Install dependencies
 
 ## Usage
 1. Open the Jupyter Notebook:
