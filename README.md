@@ -37,9 +37,19 @@ This project focuses on preprocessing Arabic song lyrics by Elissa, applying tex
 2. Run all the cells to preprocess the lyrics dataset.
 3. The final processed data will be saved as `elissa_lyrics_preprocessed.csv`.
 
+## Sentiment Analysis Results
+After applying sentiment analysis using the BERT-based model, the following results were obtained:
+
+| Sentiment  | Count |
+|------------|-------|
+| **Positive**   | 32    |
+| **Negative**   | 37    |
+| **Neutral**    | 38    |
+
+These results show a balanced distribution of sentiments across the lyrics dataset, with slightly more neutral and negative sentiments than positive ones.
+
 ## Future Improvements
 - Further fine-tuning of Arabic stemming for better accuracy.
 - Experimenting with different sentiment analysis models for improved classification.
 - Enhancing emotion detection by expanding categories and using deep learning techniques.
-
 
