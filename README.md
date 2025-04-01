@@ -42,11 +42,31 @@ After applying sentiment analysis using the BERT-based model, the following resu
 
 | Sentiment  | Count |
 |------------|-------|
-| **Positive**   | 32    |
+| **Positive**   | 30    |
 | **Negative**   | 37    |
 | **Neutral**    | 38    |
 
-These results show a balanced distribution of sentiments across the lyrics dataset, with slightly more neutral and negative sentiments than positive ones.
+These results show a balanced distribution of sentiments across the lyrics dataset, with a slight lean toward negative sentiments.
+
+## Potential Insights
+- The prevalence of negative sentiments could suggest themes of longing, heartbreak, or emotional struggle in these songs, which is common in romantic or dramatic Arabic music.
+- The positive songs might reflect themes of love, hope, or joy, as seen in titles like "مكتوبه ليك" or "هنغنى كمان وكمان".
+- The neutral songs might indicate a more reflective or balanced emotional tone, neither overly joyful nor deeply sorrowful.
+
+## Observations
+1. **Sentiment Distribution**
+   - Neutral sentiment is the most frequent (~36%), followed by negative (~35%), and then positive (~29%).
+   - This suggests a balance between emotionally intense (negative/positive) and reflective (neutral) lyrics.
+
+2. **Sentiment Trends Over the Years**
+   - Negative sentiment **peaks in 2016 and 2018**, aligning with themes of heartbreak or emotional struggle.
+   - Positive sentiment **becomes more common in 2018 and 2020**, indicating a potential shift toward uplifting themes.
+   - Neutral sentiment **remains dominant in 2016 and 2018**, reflecting a contemplative tone during those years.
+
+3. **Influence of Lyricists and Composers**
+   - Certain lyricists (e.g., **Ahmed El Gendy**) lean toward negative themes.
+   - Some composers (e.g., **Osama Rahbani**) also contribute to more negative sentiment.
+   - Others, like **Ahmed Marzouk**, create a mix of neutral and positive tones.
 
 ## Future Improvements
 - Further fine-tuning of Arabic stemming for better accuracy.
