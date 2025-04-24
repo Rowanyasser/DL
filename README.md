@@ -22,7 +22,7 @@ This project focuses on preprocessing Arabic song lyrics by the Lebanese artist 
 
 ## File Structure
 - `preprocessElissa.ipynb`: Jupyter Notebook containing the full preprocessing pipeline.
-- `elissa_lyrics_preprocessed.csv`: CSV file with processed lyrics data with sentiment analysis.
+- `elissa_lyrics.csv`: CSV file with original lyrics data .
 - `elissa_lyrics_preprocessed_with_emotion_tfidf.csv`: Preprocessed lyrics with sentiment analysis, emotion detection, and top TF-IDF words.
 
 ## Installation
