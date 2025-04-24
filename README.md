@@ -93,6 +93,10 @@ The sentiment distribution for selected composers reveals their influence on emo
   - No significant difference in sentiment across composers (p >= 0.05).
 - **Spearman Correlation for Sentiment Score vs. Year**: Correlation=-0.38, p-value=0.1816
   - No significant trend in sentiment over time (p >= 0.05).
+ - **The lack of significant differences suggests that sentiment in Elissa's songs may be driven by factors other than the lyricist or composer like:**
+  - Elissa's artistic style or preferences.
+  - The dataset's size or distribution.
+  - The sentiment analysis model's limitations.
 
 ## Emotion Distribution
 After applying emotional detection, the following results were obtained:
@@ -144,6 +148,7 @@ The emotion distribution for selected composers highlights their emotional contr
   - وليد سعد shows a balanced emotional distribution, with equal contributions from sadness, joy, and neutral (14.3% each).
   - محمد يحيى has a notable fear component (28.6%) alongside sadness (35.7%).
 
+
 ### Emotion Distribution by Year
 The emotion distribution over time reveals evolving emotional themes:
 
@@ -183,21 +188,20 @@ The emotion distribution over time reveals evolving emotional themes:
    - This suggests a balance between emotionally intense (negative/positive) and reflective (neutral) lyrics.
 
 2. **Sentiment Trends Over the Years**
-   - Negative sentiment peaks in 2016 and 2018, aligning with themes of heartbreak or emotional struggle, as evidenced by high sadness percentages (40% and 46.7%, respectively).
-   - Positive sentiment becomes more common in 2016 (33.3% joy) and 2022 (75% joy), indicating a shift toward uplifting themes in these years.
-   - Neutral sentiment is not dominant in 2016 (6.7%) or 2018 (13.3%), but it appears consistently across years, reflecting a contemplative tone in some songs.
-   - No significant trend in sentiment over time (Spearman correlation: -0.38, p=0.1816).
+   - Negative sentiment peaks in 2016 and 2018, driven by high sadness percentages (40% and 46.7%, respectively), reflecting themes of heartbreak and emotional turmoil in these years.
+   - Positive sentiment is most prominent in 2016 (33.3% joy) and 2022 (75% joy), signaling a shift toward uplifting and hopeful themes, particularly in later years.
+   - Neutral sentiment remains consistent but not dominant across years, with notable presence in 2000 (40%) and 2012 (22.2%), suggesting reflective or balanced tones in specific periods.
 
 3. **Influence of Lyricists and Composers**
    - Certain lyricists (e.g., **احمد الجندى**) lean toward negative themes.
    - Some composers (e.g., **محمد رحيم**) also contribute to more negative sentiment.
    - Others, like **الياس ناصر** (lyricist) and **تامر عاشور** (composer), create more positive tones.
-   - No significant differences in sentiment across lyricists (Kruskal-Wallis: p=0.1474) or composers (p=0.7998).
 
 4. **Sentiment & Emotion Breakdown**
    - Sad songs often labeled with both negative sentiment and sadness/fear emotions.
    - Positive songs tend to express joy and are more common post-2015.
    - Emotional shifts are evident, with joy increasing in 2022 and sadness dominating earlier years like 2004.
+
 
 ## Top TF-IDF Word Insights
 - "انا", "قلبى", "حبيبى", "عيش", "دموع" are among the most prominent across the lyrics.
