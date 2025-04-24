@@ -93,7 +93,7 @@ The sentiment distribution for selected composers reveals their influence on emo
   - No significant difference in sentiment across composers (p >= 0.05).
 - **Spearman Correlation for Sentiment Score vs. Year**: Correlation=-0.38, p-value=0.1816
   - No significant trend in sentiment over time (p >= 0.05).
- - **The lack of significant differences suggests that sentiment in Elissa's songs may be driven by factors other than the lyricist or composer like:**
+- **The lack of significant differences suggests that sentiment in Elissa's songs may be driven by factors other than the lyricist or composer like**:
   - Elissa's artistic style or preferences.
   - The dataset's size or distribution.
   - The sentiment analysis model's limitations.
