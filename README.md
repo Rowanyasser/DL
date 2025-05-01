@@ -2,7 +2,7 @@
 # Elissa Lyrics Preprocessing & Sentiment + Emotion Analysis
 
 ## Project Overview
-This project focuses on preprocessing Arabic song lyrics by the Lebanese artist Elissa. It includes a detailed pipeline for data cleaning, tokenization, stopword removal, stemming, and both sentiment and emotion classification. It aims to enable NLP tasks such as emotional profiling and linguistic insights from Arabic music. The notebook also includes visualizations for sentiment analysis, emotional detection, and TF-IDF keyword analysis by year, lyricist, and composer.
+This project focuses on preprocessing Arabic song lyrics by the Lebanese artist Elissa, followed by sentiment and emotion analysis, and culminates in generating new song lyrics using a fine-tuned AraGPT2 model. The preprocessing pipeline includes data cleaning, tokenization, stopword removal, and stemming, enabling NLP tasks such as emotional profiling, linguistic insights, and lyric generation. The notebook also includes visualizations for sentiment analysis, emotion detection, and TF-IDF keyword analysis by year, lyricist, and composer.
 
 ## Features
 - **Text Preprocessing**:
@@ -12,13 +12,17 @@ This project focuses on preprocessing Arabic song lyrics by the Lebanese artist 
   - Proper handling of attached Arabic stopwords and word segmentation.
   - Ensures clean and meaningful word tokens for analysis.
 - **Stemming**:
-  - Uses improved stemmers adapted to Arabic morphology, enhancing root extraction accuracy.
+  - Uses the ISRIStemmer adapted to Arabic morphology, enhancing root extraction accuracy.
 - **Sentiment Analysis**:
   - Sentiment labels (Positive, Negative, Neutral) were generated using a BERT-based Arabic sentiment model.
 - **Emotion Detection**:
   - Emotions extracted using lexicon-based and ML models into classes like joy, sadness, anger, fear, surprise, disgust, and neutral.
 - **Top TF-IDF Words**:
   - Key discriminative words were identified using TF-IDF ranking, per song and by year.
+- **Song Generation**:
+  - Fine-tuned AraGPT2 model to generate new Arabic song lyrics based on a seed phrase.
+  - Includes data augmentation with synonym replacement to enhance dataset diversity.
+  - Currently facing issues with NaN/Inf loss during training, to be addressed in future iterations.
 
 ## File Structure
 - `preprocessElissa.ipynb`: Jupyter Notebook containing the full preprocessing pipeline.
@@ -39,7 +43,10 @@ This project focuses on preprocessing Arabic song lyrics by the Lebanese artist 
    jupyter notebook preprocessElissa.ipynb
    ```
 2. Run all the cells to preprocess the lyrics dataset.
-3. The final processed data will be saved as `elissa_lyrics_preprocessed.csv`.
+3. The preprocessed data saved as `elissa_lyrics_preprocessed.csv`
+4. The preprocessed data with tf-idf , sentiment and emotion analysis saved as `elissa_lyrics_preprocessed_with_emotion_tfidf.csv`.
+5. The fine-tuned AraGPT2 model is saved in `./aragpt2_elissa_finetuned`.
+6. Generated lyrics are printed in the notebook output, formatted as song verses.
 
 ## Sentiment Analysis Results
 After applying sentiment analysis using the BERT-based model, the following results were obtained:
@@ -230,10 +237,43 @@ The emotion distribution over time reveals evolving emotional themes:
   - 2016 and 2014 focus on romantic and emotional themes (e.g., "حبيبى", "قلبى").
   - 2018 includes longing and conflict (e.g., "حشتونى", "كرهنى").
   - 2022 and 2023 introduce unique themes like conscience ("ضمير") and regret ("ندم").
+ 
+### Song Generation
+- **Model**: Fine-tuned AraGPT2-base model using preprocessed Elissa lyrics.
+- **Data Augmentation**: Applied synonym replacement (e.g., "قلب" → "فؤاد", "حب" → "عشق") to increase dataset diversity.
+- **Training**:
+  - 5 epochs, learning rate 2e-6, batch size 1, max sequence length 64.
+  - Faced NaN/Inf loss issues in multiple batches, indicating potential data noise or model instability.
+  - Problematic batches contained repetitive or short sequences, suggesting preprocessing improvements are needed.
+- **Generation**:
+  - Generated lyrics from the seed "قلبي عايش في حبك".
+  - Output was partially incoherent, including forum-like metadata (e.g., "الصفحة الأخيرة"), indicating dataset contamination.
+  - Fallback to pre-trained AraGPT2 when fine-tuned model failed due to probability tensor issues.
+- **Sentiment of Generated Lyrics**: Positive, despite issues.
+- **TF-IDF Keywords in Generated Lyrics**: ["آخر", "يوم", "كل", "المنتديات", "الناس"], reflecting noise from non-lyric content.
+- **Next Steps**: Address NaN/Inf loss by improving data cleaning (removing forum-like content) and experimenting with training parameters (e.g., lower learning rate, gradient clipping).
 
 ## Future Improvements
-- Further fine-tune Arabic stemmers or use character-level models.
-- Incorporate transformer-based Arabic emotion classifiers for more nuanced detection.
-- Expand analysis to include metaphors, figurative language, and theme clustering.
-- Explore deeper statistical correlations between lyricists, composers, and emotional themes.
-- Analyze the impact of specific albums or song genres on sentiment and emotion.
+- **Preprocessing**:
+  - Enhance data cleaning to remove forum-like metadata (e.g., "المنتديات", "الصفحة").
+  - Improve stemming with advanced Arabic-specific models or character-level processing.
+- **Model Training**:
+  - Address NaN/Inf loss.
+  - Experiment with larger batch sizes or gradient accumulation.
+- **Song Generation**:
+  - Increase max_length for more coherent lyrics.
+  - Use beam search or nucleus sampling for better diversity.
+  - Validate generated lyrics for thematic alignment with Elissa’s style.
+- **Analysis**:
+  - Incorporate transformer-based Arabic emotion classifiers for nuanced detection.
+  - Expand to include metaphors, figurative language, and theme clustering.
+  - Analyze album or genre impacts on sentiment and emotion.
+ 
+## Known Issues
+- **NaN/Inf Loss in Training**:
+  - Occurred in multiple batches due to repetitive or noisy data (e.g., forum-like content).
+  - Plan to improve data filtering and preprocessing for next iteration.
+- **Generated Lyrics Quality**:
+  - Output includes non-lyric content (e.g., "الصفحة الأخيرة"), indicating dataset contamination.
+  - Fine-tuned model failed due to probability tensor issues, requiring fallback to pre-trained AraGPT2.
+  - Plan to address in next week’s iteration by enhancing data cleaning and training stability.
