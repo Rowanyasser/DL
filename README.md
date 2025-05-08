@@ -28,6 +28,7 @@ This project focuses on preprocessing Arabic song lyrics by the Lebanese artist 
 - `preprocessElissa.ipynb`: Jupyter Notebook containing the full preprocessing pipeline.
 - `elissa_lyrics.csv`: CSV file with original lyrics data .
 - `elissa_lyrics_preprocessed_with_emotion_tfidf.csv`: Preprocessed lyrics with sentiment analysis, emotion detection, and top TF-IDF words.
+- `elissa_lyrics_augmented_doubled.csv`:augmented lyrics.
 
 ## Installation
 1. Clone the repository:
@@ -254,26 +255,20 @@ The emotion distribution over time reveals evolving emotional themes:
 - **Next Steps**: Address NaN/Inf loss by improving data cleaning (removing forum-like content) and experimenting with training parameters (e.g., lower learning rate, gradient clipping).
 
 ## Future Improvements
-- **Preprocessing**:
-  - Enhance data cleaning to remove forum-like metadata (e.g., "المنتديات", "الصفحة").
-  - Improve stemming with advanced Arabic-specific models or character-level processing.
-- **Model Training**:
-  - Address NaN/Inf loss.
-  - Experiment with larger batch sizes or gradient accumulation.
-- **Song Generation**:
-  - Increase max_length for more coherent lyrics.
-  - Use beam search or nucleus sampling for better diversity.
-  - Validate generated lyrics for thematic alignment with Elissa’s style.
-- **Analysis**:
-  - Incorporate transformer-based Arabic emotion classifiers for nuanced detection.
-  - Expand to include metaphors, figurative language, and theme clustering.
-  - Analyze album or genre impacts on sentiment and emotion.
+- **Generation**:we will fix the Nan/INF loss issue.
+- **augmented lyrics**:we will apply sentiment and emotional analysis on the augmented lyrics.
+  
  
-## Known Issues
-- **NaN/Inf Loss in Training**:
-  - Occurred in multiple batches due to repetitive or noisy data (e.g., forum-like content).
-  - Plan to improve data filtering and preprocessing for next iteration.
-- **Generated Lyrics Quality**:
-  - Output includes non-lyric content (e.g., "الصفحة الأخيرة"), indicating dataset contamination.
-  - Fine-tuned model failed due to probability tensor issues, requiring fallback to pre-trained AraGPT2.
-  - Plan to address in next week’s iteration by enhancing data cleaning and training stability.
+ ## output of generation: 
+
+..-قلبي عايش في حبك
+•• لا تخافي يا حياتي
+انا ما احبك. . ولا احبك.. انت من كل
+*   •قلبي. • وانت من روحي .. وانا من دمي .. وانفاسي
+*   • ودمعي • • واشعاري . - وفكري.. واحزاني .. وحنيناتي.. وعل ابي .. ودموعي .. وشوقي
+*   • وحزني . . وغنائي • • ومشاعري.• و اعمالي
+*  • واخطائي. . واقوامي. . واماني .. وصوتي وسلامي • • وقبلاتي • • ودفقي. • وتحياتي
+لك.. وكل عام وانت بالف خير .. وتَقبل اللَّه
+*  •منا ومنكم صالح الاعمال والسلام عليكم ورحمة اللّه
+*   وبركاته
+Sentiment of Generated Lyrics: negative
