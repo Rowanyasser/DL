@@ -254,10 +254,6 @@ The emotion distribution over time reveals evolving emotional themes:
 - **TF-IDF Keywords in Generated Lyrics**: ["آخر", "يوم", "كل", "المنتديات", "الناس"], reflecting noise from non-lyric content.
 - **Next Steps**: Address NaN/Inf loss by improving data cleaning (removing forum-like content) and experimenting with training parameters (e.g., lower learning rate, gradient clipping).
 
-## Future Improvements
-- **Generation**:we will fix the Nan/INF loss issue.
-- **augmented lyrics**:we will apply sentiment and emotional analysis on the augmented lyrics.
-  
  
  ## output of generation: 
 
